@@ -201,10 +201,22 @@ SITE_ID = 1
 #
 # LOGIN_URL = '/login/'
 # LOGIN_REDIRECT_URL = '/'
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_SIGNUP_FORM_CLASS = 'userauth.forms.SignupForm'
+
+"""the above sets the auth method to email rather than username and
+to modify it please follow https://pythoneatstail.com/en/overview-all-articles/signup-and-password-reset-email-verification-allauth-django/
+the four lines below allow setting for username and email 
+"""
 # ACCOUNT_AUTHENTICATION_METHOD = "username_email"
 # ACCOUNT_CONFIRM_EMAIL_ON_GET = True
 # ACCOUNT_EMAIL_REQUIRED = True
 # ACCOUNT_EMAIL_VERIFICATION = "mandatory"
+
+
 # ACCOUNT_LOGIN_ON_EMAIL_CONFIRMATION = True
 # ACCOUNT_LOGOUT_ON_GET = True
 # ACCOUNT_LOGIN_ON_PASSWORD_RESET = True
