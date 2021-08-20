@@ -1,0 +1,56 @@
+
+ALLAUTH
+All account templates for allauth should go into the directory account/ of your app,
+in our case userauth/templates/userauth/account/, so create this directory.
+
+Be careful: the directory with the templates is called account/,
+while the url's have an extra s: /accounts/…/.
+So the url …/accounts/login/ uses the template …/account/login.html.
+
+
+all allauth templates are multilingual by default,
+i.e. they use the template tags trans loaded with {% load i18n %}.
+
+NB - to keep the templates in the userauth directory and not move it to project templates...
+
+don't know why but it functions only like this.
+
+
+BOOTSTRAP AND ALLAUTH FORMS
+Using Bootstrap we have created a new base template with three blocks
+card-header, card-body and card-footer, to make our templates look nicer.
+We are going to divide our ALLAUT forms/.html template in these three parts
+
+
+form_field.html (which appears in login.html for ex):
+If the form is bound, i.e. if it has already been submitted before (perhaps with errors),
+$then any errors are displayed or the field is 'green' and validated.
+If it is the first time the form is shown, then the field is rendered with the
+field name added as the last part of the class, so that it can be styled differently if needed.
+
+This is done with widget_tweaks,
+which provides Alarm colors and text when the data is wrongly entered, etc.
+
+
+GIT
+Create a git repository;
+ Copy the <link> to the repository.
+ Go to the project directory
+
+git init
+git remote add origin <link>
+
+This initializes git in your project directory and ties it to the remote repository.
+
+
+then type the following:
+git add .
+git commit -m "initial commit"
+git push -u origin master
+
+Tags Filters
+
+|default.
+When fields are undefined, the value None is displayed in the template.
+To prevent this, we use Django's filter default, which displays nothing (an empty string).
+
